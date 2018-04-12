@@ -56,7 +56,19 @@ public class TreeTester {
     }
     boolean checkTree(Node in)
     {
-        return true;
+        int l=0,r=0,bal;
+        if(in.getRightChild()!=null)
+        {r=in.getRightChild().getHeight();checkTree(in.getRightChild());}
+        if(in.getLeftChild()!=null)
+        {l=in.getLeftChild().getHeight();
+        checkTree(in.getLeftChild());}
+        
+        bal=r-l;
+        System.out.print("bal ("+in.getValue()+") = "+bal );
+        if(bal<-1||bal>1)
+            System.out.print(" (AVL violation!)");
+        System.out.println("");
+        return ((bal>=-1)&&(bal<=1));
     }
     
 

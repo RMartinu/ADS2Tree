@@ -25,11 +25,7 @@ public class TreeTesterTest {
 
     @BeforeClass
     public static void setUpClass() {
-//         int input[] = {5, 3, 17, 9, 23, 54, 11, 79, 30, 12};
-//        Instance = new Node(5);
-//        for (int i = 1; i < input.length; ++i) {
-//            Instance.insert(input[i]);
-//        }
+
 
         
     }
@@ -58,7 +54,6 @@ public class TreeTesterTest {
     @Test
     public void testFindMin() {
         System.out.println("findMin");
-        Node in = null;
         TreeTester instance = new TreeTester(this.Instance);
         int expResult = 3;
         int result = instance.findMin();
@@ -74,10 +69,10 @@ public class TreeTesterTest {
     public void testFindMax() {
         System.out.println("findMax");
         fail();
-        Node in = null;
+        //Node in = null;
         TreeTester instance = null;
         int expResult = 0;
-        int result = instance.findMax(in);
+        int result = instance.findMax();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -105,14 +100,14 @@ public class TreeTesterTest {
     @Test
     public void testCheckTree() {
         System.out.println("checkTree");
-        fail();
+        //fail();
         Node in = null;
-        TreeTester instance = null;
+        TreeTester instance = new TreeTester(this.Instance);
         boolean expResult = false;
-        boolean result = instance.checkTree(in);
+        boolean result = instance.checkTree();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
 }
