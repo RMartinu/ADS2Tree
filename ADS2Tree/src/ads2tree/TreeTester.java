@@ -8,6 +8,7 @@ package ads2tree;
 /**
  *
  * @author Robert Martinu
+ * @author Julia Pichler
  */
 public class TreeTester {
     Node testMe;
@@ -32,7 +33,11 @@ public class TreeTester {
     int findMax()
     {return findMax(testMe);}
     int findMax(Node in)
-    {return 0;}
+    {
+        if(in.getRightChild()!=null)
+        {return findMax(in.getRightChild());}
+        return in.getValue();
+     }
     
     double findAverage()
     {

@@ -8,6 +8,7 @@ package ads2tree;
 /**
  *
  * @author Robert Martinu
+ * @author Julia Pichler
  */
 public class Node {
     int Payload;

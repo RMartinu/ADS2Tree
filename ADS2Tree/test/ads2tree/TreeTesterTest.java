@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Robert Martinu
+ * @author Julia Pichler
  */
 public class TreeTesterTest {
 
@@ -68,14 +69,14 @@ public class TreeTesterTest {
     @Test
     public void testFindMax() {
         System.out.println("findMax");
-        fail();
+        
         //Node in = null;
-        TreeTester instance = null;
-        int expResult = 0;
+        TreeTester instance = new TreeTester(Instance);
+        int expResult = 79;
         int result = instance.findMax();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**

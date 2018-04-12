@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author Robert Martinu
+ * @author Julia Pichler
  */
 public class ADS2Tree {
 
