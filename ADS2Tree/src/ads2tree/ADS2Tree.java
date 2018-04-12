@@ -29,7 +29,7 @@ public class ADS2Tree {
            System.err.println("Please specifiy file");
            return;
        }
-       System.out.println("Parsin: "+args[0]);
+       System.out.println("Parsin': "+args[0]);
         TreeTester TestThisTree=new TreeTester(BuildTree(args[0]));
         boolean isAVL=TestThisTree.checkTree();
         int min, max; 
