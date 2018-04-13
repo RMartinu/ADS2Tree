@@ -11,67 +11,73 @@ package ads2tree;
  * @author Julia Pichler
  */
 public class Node {
-    int Payload;
-    Node left=null, right=null;
-    
-    public Node (int input)
-    {
-        Payload=input;
+
+    private final int Payload; //contains data of node
+    private Node left = null, right = null;
+
+    //constructor
+    public Node(int input) {
+        Payload = input;
     }
-    
-    public int getValue()
-    {
+
+    //getter
+    public int getValue() {
         return Payload;
     }
-    
-    public Node getLeftChild()
-    {
+
+    public Node getLeftChild() {
         return left;
     }
-    
-    public Node getRightChild()
-    {
+
+    public Node getRightChild() {
         return right;
     }
-    
-    
-    public void insert(int value)
-    {
-        if(value>Payload)
-        {
-            if(right!=null)
+
+    public void insert(int value) {
+        //if input is greater then insert right
+        if (value > Payload) {
+            //if right is occupied then delegate else create new node
+            if (right != null) {
                 right.insert(value);
-            else
-                right=new Node(value);
-        }
-        else
-        {
-            if(left!=null)
+            } else {
+                right = new Node(value);
+            }
+        } //if input is smaller then insert left
+        else {
+            //if left is occupied then delegate else create new node
+            if (left != null) {
                 left.insert(value);
-            else
-                left=new Node(value);
+            } else {
+                left = new Node(value);
+            }
         }
     }
-    
-    public int getHeight()
-    {
-        int leftHeight=1, rightHeight=1;
-        if(left!=null)
-            leftHeight=left.getHeight()+1;
-        if(right!=null)
-            rightHeight=right.getHeight()+1;
-        
-        return Integer.max(leftHeight, rightHeight); 
+
+    public int getHeight() {
+        int leftHeight = 1, rightHeight = 1;
+        //ask for each childs' height (recursive)
+        if (left != null) {
+            leftHeight = left.getHeight() + 1;
+        }
+        if (right != null) {
+            rightHeight = right.getHeight() + 1;
+        }
+        //return largest height
+        return Integer.max(leftHeight, rightHeight);
     }
-    
-    public int getBalance()
-    {
-        if(left!=null && right!=null)
-        return left.getHeight()-right.getHeight();
-        if(left!=null)
-            return -(left.getHeight()+1);
-        if(right!=null)
-            return right.getHeight()+1;
+
+    public int getBalance() {
+        //if both children exist calculate their height difference
+        if (left != null && right != null) {
+            return left.getHeight() - right.getHeight();
+        }
+        //else return existing height
+        if (left != null) {
+            return -(left.getHeight());
+        }
+        if (right != null) {
+            return right.getHeight();
+        }
         return 0;
     }
 }

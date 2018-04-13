@@ -19,7 +19,8 @@ import static org.junit.Assert.*;
  */
 public class TreeTesterTest {
 
-     Node Instance = null;
+    Node nonAVL = null;
+    Node AVL = null;
 
     public TreeTesterTest() {
     }
@@ -27,8 +28,6 @@ public class TreeTesterTest {
     @BeforeClass
     public static void setUpClass() {
 
-
-        
     }
 
     @AfterClass
@@ -38,9 +37,14 @@ public class TreeTesterTest {
     @Before
     public void setUp() {
         int input[] = {5, 3, 17, 9, 23, 54, 11, 79, 30, 12};
-        Instance = new Node(5);
+        nonAVL = new Node(5);
         for (int i = 1; i < input.length; ++i) {
-            Instance.insert(input[i]);
+            nonAVL.insert(input[i]);
+        }
+        int input1[] = {/*25,*/20, 36, 10, 22, 30, 40, 12, 28, 38, 48};
+        AVL = new Node(25);
+        for (int i : input1) {
+            AVL.insert(i);
         }
 
     }
@@ -55,12 +59,17 @@ public class TreeTesterTest {
     @Test
     public void testFindMin() {
         System.out.println("findMin");
-        TreeTester instance = new TreeTester(this.Instance);
+        TreeTester instance = new TreeTester(this.nonAVL);
         int expResult = 3;
         int result = instance.findMin();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-       // fail("The test case is a prototype.");
+        // fail("The test case is a prototype.");
+
+        expResult = 10;
+        instance = new TreeTester(AVL);
+        result = instance.findMin();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -69,14 +78,19 @@ public class TreeTesterTest {
     @Test
     public void testFindMax() {
         System.out.println("findMax");
-        
+
         //Node in = null;
-        TreeTester instance = new TreeTester(Instance);
+        TreeTester instance = new TreeTester(nonAVL);
         int expResult = 79;
         int result = instance.findMax();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
+
+        instance = new TreeTester(AVL);
+        expResult = 48;
+        result = instance.findMax();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -85,9 +99,9 @@ public class TreeTesterTest {
     @Test
     public void testFindAverage() {
         System.out.println("findAverage");
-        
+
         Node in = null;
-        TreeTester instance = new TreeTester(this.Instance);
+        TreeTester instance = new TreeTester(this.nonAVL);
         double expResult = 24.3;
         double result = instance.findAverage();
         assertEquals(expResult, result, 0.1);
@@ -103,12 +117,20 @@ public class TreeTesterTest {
         System.out.println("checkTree");
         //fail();
         Node in = null;
-        TreeTester instance = new TreeTester(this.Instance);
+        TreeTester instance = new TreeTester(this.nonAVL);
         boolean expResult = false;
         boolean result = instance.checkTree();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
+
+        System.out.println("");
+
+        instance = new TreeTester(AVL);
+        expResult = true;
+        result = instance.checkTree();
+        assertEquals(expResult, result);
+
     }
 
 }

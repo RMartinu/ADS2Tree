@@ -18,22 +18,22 @@ import static org.junit.Assert.*;
  * @author Julia Pichler
  */
 public class NodeTest {
-    
+
     public NodeTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -41,11 +41,11 @@ public class NodeTest {
     @Test
     public void testConstructor() {
         // TODO review the generated test code and remove the default call to fail.
-        Node n=new Node (17);
+        Node n = new Node(17);
         assertEquals(17, n.getValue());
-        assertEquals(0, n.getHeight());
-        
-       // fail("The test case is a prototype.");
+        assertEquals(1, n.getHeight());
+
+        // fail("The test case is a prototype.");
     }
 
     /**
@@ -56,14 +56,13 @@ public class NodeTest {
         System.out.println("insert");
         int value = 5;
         Node i = new Node(15);
-        assertEquals(0, i.getHeight());
+        assertEquals(1, i.getHeight());
         assertEquals(0, i.getBalance());
         i.insert(value);
-        assertEquals(1, i.getHeight());
+        assertEquals(2, i.getHeight());
         assertEquals(-1, i.getBalance());
 
         // TODO review the generated test code and remove the default call to fail.
-      
     }
 
     /**
@@ -74,12 +73,10 @@ public class NodeTest {
         System.out.println("getBalance");
         Node instance = new Node(13);
         int expResult = 0;
-        int result = instance.getHeight();
+        int result = instance.getBalance();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }
-    
-    
-    
+
 }
